@@ -3,6 +3,7 @@
     var splatParam    = /\*([\w\d]+)/g;
     var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
 
+    // http://perfectionkills.com/instanceof-considered-harmful-or-how-to-write-a-robust-isarray/
     var toString = Object.prototype.toString;
     function isRegExp(obj) {
         return toString.call(obj)=='[object RegExp]';
@@ -14,7 +15,7 @@
     Dispatcher.prototype = {
         register: function(route, callback) {
             if (!isRegExp(route)) {
-                route = this._routeToRegExp(route);
+                route = this._compileRoute(route);
             }
             this.routes.push([route, callback]);
         },
@@ -30,7 +31,7 @@
                 }
             }
         },
-        _routeToRegExp : function(route) {
+        _compileRoute : function(route) {
             route = route.replace(escapeRegExp, "\\$&")
                          .replace(namedParam, "([^\/]*)")
                          .replace(splatParam, "(.*?)");
