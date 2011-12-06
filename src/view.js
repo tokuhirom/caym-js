@@ -34,12 +34,12 @@ View.extend = function (c) {
     }
     return inherit(this, c);
 };
-$.extend(View.prototype, {
+View.prototype = {
     init: function () { }, /* placeholder */
     $: function (selector) {
-        return (selector === null) ? $(this.el) : $(selector, this.el);
+        return (arguments.length === 0 || selector === null) ? $(this.el) : $(selector, this.el);
     }
-});
+};
 Caym.View = View;
 
 })( Caym );
