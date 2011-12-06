@@ -1,4 +1,7 @@
 (function( Caym ) {
+
+    (function () {
+
     var namedParam    = /:([\w\d]+)/g;
     var splatParam    = /\*([\w\d]+)/g;
     var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
@@ -37,4 +40,7 @@
         }
     };
     Caym.Dispatcher = Dispatcher;
+
+    })();
+
 })( Caym );

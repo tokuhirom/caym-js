@@ -11,6 +11,9 @@
     Caym.version = '1.0.0';
 
 
+
+    (function () {
+
     var namedParam    = /:([\w\d]+)/g;
     var splatParam    = /\*([\w\d]+)/g;
     var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
@@ -49,6 +52,9 @@
         }
     };
     Caym.Dispatcher = Dispatcher;
+
+    })();
+
 
 
     // @requires=jquery
