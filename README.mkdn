@@ -1,0 +1,47 @@
+caym.js
+=======
+
+WHAT'S THIS?
+------------
+
+This is yet another tiny javascript library for view/dispatcher.
+
+VIEWS
+-----
+
+    var MyView = Caym.View.extend({
+        init: function (arg1, arg2) {
+            // constructor code here
+        },
+        el: $('#container'), // root container of this view
+        elements: { // make element as instance property
+            '.btn': 'btnElem'
+        },
+        events: { // bind events
+            '.btn': {
+                'click': 'onClickBtn'
+            }
+        },
+        onClickBtn: function (event) {
+            // event handler here
+        }
+    });
+    window.myview = new MyView(arg1, arg2);
+
+DISPATCHER
+----------
+
+    var dispatcher = new Caym.Dispatcher();
+    dispatcher.register('/my/', function () {
+        // your code here
+    });
+    dispatcher.register('/user/:id', function (id) {
+        // your code here
+    });
+    dispatcher.dispatch(location.pathname);
+
+REQUIREMENTS
+------------
+
+jQuery 1.7+
+
