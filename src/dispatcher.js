@@ -4,13 +4,16 @@
     var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
 
     var toString = Object.prototype.toString;
+    function isRegExp(obj) {
+        return toString.call(obj)=='[object RegExp]';
+    }
 
     function Dispatcher() {
         this.routes = [];
     }
     Dispatcher.prototype = {
         register: function(route, callback) {
-            if (!toString.call(route) == '[object regexp]') {
+            if (!isRegExp(route)) {
                 route = this._routeToRegExp(route);
             }
             this.routes.push([route, callback]);

@@ -1,4 +1,4 @@
-MODULES = src/intro.js src/dispatcher.js src/outro.js
+MODULES = src/intro.js src/dispatcher.js src/view.js src/outro.js
 
 all: caym.js
 

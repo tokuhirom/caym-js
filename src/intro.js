@@ -8,3 +8,5 @@
         Caym = global.Caym = {};
     }
 
+    Caym.version = '1.0.0';
+
